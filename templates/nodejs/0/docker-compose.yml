@@ -1,7 +1,7 @@
 nodejs:
   image: node:7.10.0-alpine
   ports:
-    - ${public_port}:8080
+    - ${public_port}:8888
   volumes:
     - ${volume_app}:/usr/src/app:ro
   working_dir: /usr/src/app
