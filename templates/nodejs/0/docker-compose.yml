@@ -1,23 +1,27 @@
 nodejs:
   image: node:7.10.0-alpine
   ports:
-    - ${public_port}:80
+    - ${public_port}:8080
   volumes:
     - ${volume_app}:/usr/src/app:ro
   working_dir: /usr/src/app
   command: ${commands}
   environment:
-    - NODE_DEBUG=false
-    - CORS_ORIGIN=http://localhost:3001,http://localhost:3000
-    - DATABASE_URL=postgres://postgres@db:5432/dev
-    - DATABASE_DEBUG=false
-    - REDIS_URL=redis://redis:6379/0
-    - SESSION_SECRET=wZjwhFtzQsd7r87W6AZw45Sm
-    - FACEBOOK_ID=1821424564802638
-    - FACEBOOK_SECRET=2339bdf25f236a42fc3a18280bf455e8
-    - GOOGLE_ID=xxxxx.apps.googleusercontent.com
-    - GOOGLE_SECRET=xxxxx
-    - TWITTER_KEY=xxxxx
-    - TWITTER_SECRET=xxxxx  
+    - PORT=8080
+    - HOST=localhost
+    - LPC_HOST=http://localhost:8080
+    - CCU_HOST=https://integration.compte.laposte.fr
+    - CCU_ID=lpc
+    - CCU_SECRET=lpcClientSecret
+    - DISABLE_TESTS_ROUTES=false
+    - SECRET_KEY_STATE=bhunjivgy
+    - LOGIN_CABESTAN=WS_LAPOSTECONNECT
+    - PASSWORD_CABESTAN=3z8UfMc6
+    - CABESTAN_HOST=http://secure.cabestan.com
+    - CABESTAN_REINIT=DS12012017163420
+    - CABESTANT_FINALIZE=DS09122016093242
+    - LPC_NODE_HOST=http://localhost:8080
+    - LPC_HOST_SHORT=localhost:8080
+    - GENERIC_REDIRECT_URL=https://recette.laposte.fr
 
 # https://github.com/kriasoft/nodejs-api-starter/blob/master/docker-compose.yml
