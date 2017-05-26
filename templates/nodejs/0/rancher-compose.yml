@@ -1,0 +1,27 @@
+.catalog:
+  name: "Node JS"
+  version: "v0.1-educaas1"
+  description: "JavaScript runtime built on Chrome's V8."
+  uuid: NodeJs-0
+  minimum_rancher_version: v0.51.0
+  questions:    
+    - variable: public_port
+      description: "public port to access the wordpress site"
+      label: "Public Port"
+      required: true
+      default: "80"
+      type: "int"
+    - variable: volume_app
+      description: "The location to mount the NodeJs application home directory on"
+      label: "Volume App"
+      required: true
+      default: "/var/www"
+      type: "string"
+    - variable: commands
+      description: "Service executed at launch"
+      label: "Commands"
+      required: true
+      default: "bash -c 'python manage.py migrate && python manage.py runserver 0.0.0.0:8000'"
+      type: "string"
+
+nodejs:
